@@ -6,7 +6,7 @@ require_once 'header.php';
     <div class="container-fluid">
 
         <a href="#" class="dgit-logo">
-            <i class="fas fa-check-circle"></i> DOIT
+            <img src="assets/images/logo.png" style="width: 6rem; margin-left: 2rem;">
         </a>
 
         <form class="d-flex navbar-search me-auto" style="width: 400px;">

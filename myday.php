@@ -6,7 +6,7 @@ require_once 'header.php';
     <div class="container-fluid">
 
         <a href="#" class="dgit-logo">
-            <i class="fas fa-check-circle"></i> DOIT
+            <img src="assets/images/logo.png" style="width: 6rem; margin-left: 2rem;">
         </a>
 
         <form class="d-flex navbar-search me-auto" style="width: 400px;">
@@ -112,7 +112,7 @@ require_once 'header.php';
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="taskAddModalLabel">Add New Task</h5>
+                <h5 class="modal-title text-secondary" id="taskAddModalLabel">Add New Task</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -168,8 +168,9 @@
 <body>
 
     <div class="dgit-logo">
-        <i class="fas fa-check-circle"></i> DGIT
+        <img src="assets/images/logo.png" style="width: 6rem;">
     </div>
+
 
     <img src="assets/images/forgot.png" class="illustration-signup img-fluid d-none d-md-block" style="position: absolute; top: 5rem; left: 4rem; width: 44.25rem; height: 34.5rem;">
 

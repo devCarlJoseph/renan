@@ -7,7 +7,7 @@ require_once 'header.php';
 <nav class="navbar navbar-light user-navbar">
     <div class="container-fluid">
         <a href="#" class="dgit-logo">
-            <i class="fas fa-check-circle"></i> DOIT
+            <img src="assets/images/logo.png" style="width: 6rem; margin-left: 2rem;">
         </a>
 
         <form class="d-flex navbar-search me-auto" style="width: 400px;">
@@ -97,63 +97,93 @@ require_once 'header.php';
             <hr>
         </div>
 
-        <div class="task-list mt-4">
-
-            <div class="task-item">
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="checkbox" value="" id="task1">
-                </div>
-                <div class="task-details flex-grow-1">
-                    <div class="task-title">Answer Assignment</div>
-                    <div class="task-subtitle">IT ERA | Today</div>
-                </div>
-                <div class="task-star">
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-
-            <div class="task-item">
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="checkbox" value="" id="task2">
-                </div>
-                <div class="task-details flex-grow-1">
-                    <div class="task-title">Make PPT</div>
-                    <div class="task-subtitle">Platform Technologies | October 15, 2025</div>
-                </div>
-                <div class="task-star">
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-
-            <div class="task-item">
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="checkbox" value="" id="task3">
-                </div>
-                <div class="task-details flex-grow-1">
-                    <div class="task-title">Watch Conjuring 2</div>
-                    <div class="task-subtitle">Movie Marathon | November 1, 2025</div>
-                </div>
-                <div class="task-star">
-                    <i class="far fa-star"></i>
-                </div>
-            </div>
-
-            <div class="task-item">
-                <div class="form-check me-3">
-                    <input class="form-check-input" type="checkbox" value="" id="task4">
-                </div>
-                <div class="task-details flex-grow-1">
-                    <div class="task-title">Do General Cleaning</div>
-                    <div class="task-subtitle">Chores | November 3, 2025</div>
-                </div>
-                <div class="task-star">
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-
+        <div class="task-list mt-4" id="task-list">
         </div>
-        <div class="fab-add-task">
+
+        <div class="fab-add-task" data-bs-toggle="modal" data-bs-target="#taskAddModal">
             <i class="fas fa-plus"></i>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="taskAddModal" tabindex="-1" aria-labelledby="taskAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-secondary" id="taskAddModalLabel">Add New Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-task-form">
+                    <div class="mb-3">
+                        <label for="new-task-title" class="form-label">Task Title</label>
+                        <input type="text" class="form-control" id="new-task-title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new-task-folder" class="form-label">Folder</label>
+                        <select class="form-select" id="new-task-folder" required>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new-task-date" class="form-label">Due Date</label>
+                        <input type="date" class="form-control" id="new-task-date" value="">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="new-task-important">
+                        <label class="form-check-label" for="new-task-important">
+                            Mark as Important
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="taskEditModal" tabindex="-1" aria-labelledby="taskEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="modal-edit-complete-check"
+                        style="width: 20px; height: 20px; cursor: pointer;">
+                </div>
+                <h5 class="modal-title visually-hidden" id="taskEditModalLabel">Edit Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" id="modal-edit-task-title" value="">
+
+                <div class="modal-details mb-4">
+                    <span id="modal-edit-task-folder"><i class="fas fa-list-ul"></i> Folder</span>
+                    <span class="mx-2 text-muted">|</span>
+                    <span id="modal-edit-task-date"><i class="fas fa-calendar-alt"></i> Date</span>
+                    <span class="mx-2 text-muted">|</span>
+                    <span id="modal-edit-task-star"><i class="far fa-star"></i> Important</span>
+                </div>
+
+                <hr class="my-4">
+
+                <input type="hidden" id="modal-edit-task-id">
+
+                <div class="mb-3">
+                    <label for="modal-edit-folder-select" class="form-label text-muted">Move to Folder</label>
+                    <select class="form-select" id="modal-edit-folder-select">
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="modal-edit-due-date" class="form-label text-muted">Due Date</label>
+                    <input type="date" class="form-control" id="modal-edit-due-date">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" id="delete-task-btn"><i
+                        class="fas fa-trash-alt"></i> Delete Task</button>
+                <button type="button" class="btn btn-primary" id="save-task-btn">Save Changes</button>
+            </div>
         </div>
     </div>
 </div>

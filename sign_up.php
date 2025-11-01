@@ -168,8 +168,9 @@
 <body>
 
     <div class="dgit-logo">
-        <i class="fas fa-check-circle"></i> DGIT
+        <img src="assets/images/logo.png" style="width: 6rem;">
     </div>
+
 
     <img src="assets/images/signup.png" class="illustration-signup img-fluid d-none d-md-block" style="position: absolute; top: 5rem; left: 4rem; width: 44.25rem; height: 34.5rem;">
 
@@ -190,8 +191,7 @@
             </div>
             <div class="mb-3 text-start">
                 <label for="confirm-password" class="form-label visually-hidden">Confirm password</label>
-                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password"
-                    >
+                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password">
             </div>
             <button type="submit" class="btn btn-custom-orange">Sign up</button>
         </form>
